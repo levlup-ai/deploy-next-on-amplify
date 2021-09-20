@@ -27,7 +27,7 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on AWS
+## Deploy on AWS Amplify
 
 To launch a Next.js app online, you need to deploy it. AWS Amplify is a cost-effective and ready-for-scale option, which supports deploying both SSR and SSG Next.js apps without any additional configuration.
 
@@ -47,10 +47,11 @@ Then, create a repository on your git provider of choice, and push your code to 
 
 1. Create an AWS account if you don't already have one.
 2. Navigate to the Amplify Console
-3. Click on the orange `connect app` button.
+3. Click on the orange `connect app` button _─If you already have apps, you'll need to click `new app`, then `Host Web App`_
 4. Choose your git provider of choice (in my case Github) in the `From your existing code` menu, and click continue
    [!alt text](https://welearncode.com/beginners-guide-react-2020/choose-github.png)
-5. Type in the name of your GitHub repo you just created (it should autofill!) and then click next
+5. Type in the name of your GitHub repo you just created (it should autofill!) and then click `next`
    [!alt text](https://welearncode.com/beginners-guide-react-2020/select-your-repo.png)
-6. The build settings will auto-populate, and so you can just click `next` on the `Configure build settings`
-7. Click `Save and deploy`.
+6. The build settings will auto-populate, and so you can just click `next` on the `Configure build settings` _(Note: If you are deploying an SSR or hybrid app, you may need to read point 8 below)_
+7. **[Optional -But IMPORTANT for SSR APPS!]** If your frontend requires backend-access permission, you will be asked to [select an existing service role](https://aws.amazon.com/blogs/mobile/host-a-next-js-ssr-app-with-real-time-data-on-aws-amplify/) or [create a new one](https://docs.aws.amazon.com/amplify/latest/userguide/how-to-service-role-amplify-console.html), so that Amplify Console may access your resources: if you don't already have a service role, click `create new role`, which will open up an `IAM` role management window. There, leave all as default but make sure that under `Attached permissions policies` you have both `AdministratorAccess-Amplify` and `AdministratorAccess`: if you don't add the missing one(s).
+8. Click `Save and deploy`.
