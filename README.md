@@ -58,8 +58,6 @@ Then, create a repository on your git provider of choice, and push your code to 
 
 _Note: If you don't want to give your backend service role full admin access, here is a list of service permissions that should be able to support an SSR deployment:_
 
-If you get this error when building a NextJs SSR application, it's likely that the IAM role associated to your App does not have sufficient permissions to deploy resources in your account. For SSR apps, we deploy things like an S3 bucket, a CloudFront distribution, Lambda@Edge functions, an SQS queue (if using ISR) and IAM roles. The following IAM policy is a recommended baseline of permissions that your role needs, but feel free to adjust it to your needs:
-
 <details>
   <summary>IAM permissions for Amplify App Role</summary>
 
