@@ -27,8 +27,30 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy on AWS
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To launch a Next.js app online, you need to deploy it. AWS Amplify is a cost-effective and ready-for-scale option, which supports deploying both SSR and SSG Next.js apps without any additional configuration.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you're creating a statically generated Next.js app, go to your `package.json` file and change your build script from `next build` to `next build && next export`. If you're instead creating a server-side rendered app, you don't need to change a thing! The scripts Next.js generated for you will be what you need.
+
+```
+"scripts": {
+  "dev": "next dev",
+  "build": "next build [ + optional: && next export]",
+  "start": "next start"
+},
+```
+
+Then, create a repository on your git provider of choice, and push your code to it.
+
+### Deployment
+
+1. Create an AWS account if you don't already have one.
+2. Navigate to the Amplify Console
+3. Click on the orange `connect app` button.
+4. Choose your git provider of choice (in my case Github) in the `From your existing code` menu, and click continue
+   [!alt text](https://welearncode.com/beginners-guide-react-2020/choose-github.png)
+5. Type in the name of your GitHub repo you just created (it should autofill!) and then click next
+   [!alt text](https://welearncode.com/beginners-guide-react-2020/select-your-repo.png)
+6. The build settings will auto-populate, and so you can just click `next` on the `Configure build settings`
+7. Click `Save and deploy`.
